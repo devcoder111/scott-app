@@ -60,5 +60,7 @@ Replace the config values of your firebase app into file `src/boot/firebase.json
   
   `src/components/UploadFile/*.vue` These file are vue components to login and register for users.
   
+  `src/components/Friends/*.vue` These file are vue components to add, edit friends.
+  
 
   
