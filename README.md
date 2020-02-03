@@ -41,5 +41,6 @@ Replace the config values of your firebase app into file `src/boot/firebase.json
 
  ### Database logic with firebase
  
- Look at this file "src/store-auth.js" : As vuex part, this file involes the login and register using Firebase Auth with an email address and password
+ Look at this file "src/store-auth.js" : As vuex part, this file involes the login and register using Firebase Auth with an email address and password.
+ 
  `src/store-settings.js` this file involves functionos of the Reading the friends list, Adding, Updating the friends and uploading mp3 file.
