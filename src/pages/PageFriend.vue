@@ -34,6 +34,37 @@
   		</template>
 
   	</div>
+	  <!-- <div class="q-pa-md">
+		<div class="q-gutter-md row items-start">
+		<q-uploader
+			url="gs://fb101-286a0.appspot.com/musics"
+			label="Upload to mp3 file"
+			multiple
+			accept=".mp3"
+			style="max-width: 300px"></q-uploader>
+		</div>
+	  </div> -->
+	  <template>
+		  <div class="q-gutter-md" style="max-width: 335px">
+		   <q-input outlined v-model="fileName" label="File Name" />
+		   </div>
+		<QFirebaseUploaderBase
+			:filename="fileName"
+			label="Upload Media"
+			:metadata="metadata"
+			auto-upload
+			@upload="addFile"
+			accept=".mp3"
+			multiple/>
+			<br />
+			<q-btn
+			to="/listening"
+			color="primary"
+			icon="people"
+			label="Listening Music"
+			flat />
+	  </template>
+
 		
 		<q-dialog v-model="showAddFriend">
 		  <add-friend @close="showAddFriend = false" />
@@ -60,6 +91,8 @@
 				tmpFriendData:'',
 				tmpFriendID:'',
 				friendIds:'',
+				metadata:{},
+				fileName: '',
 
 				columns: [
 					{
@@ -105,6 +138,10 @@
 				this.showEditFriend = true;
 				
 			},
+		addFile (item) {
+			Vue.set(this.gallery, item.id, item)
+			// this.save()
+		}
 		},
 		mounted() {
 			this.$root.$on('showAddFriend', () => {
@@ -130,6 +167,7 @@
 		components: {
 			'add-friend' : require('components/Friends/AddFriend.vue').default,
 			'edit-friend' : require('components/Friends/EditFriend.vue').default,
+			'QFirebaseUploaderBase' : require('components/UploadFile/QFirebaseUploaderBase.vue').default,
 		}
 	}
 </script>

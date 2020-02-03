@@ -60,6 +60,7 @@ const actions = {
                 this.$router.push('/friends')
 
                 dispatch('settings/fbReadFriends', null, { root: true })
+                dispatch('settings/fbReadFiles', null, { root: true })
 
             } else {
 

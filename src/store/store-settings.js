@@ -9,6 +9,7 @@ import firestore from 'firebase/firestore'
 const state = {
 
     friends: {},
+    files: {},
 
 }
 
@@ -19,30 +20,33 @@ const mutations = {
         Vue.set(state.friends, payload.docRefid, payload.friend)
         console.log('friendstate', state.friends)
     },
+    addFile(state, payload) {
+        console.log("add", payload)
+        Vue.set(state.files, payload.docRefid, payload.file)
+        console.log('friendstate', state.file)
+    },
     updateFriend(state, payload) {
-        console.log('updatepayload', payload.updates)
-        console.log("edit", payload, state.friends[payload.id])
-
-        Object.assign(state.friends[payload.id], {
+        console.log('previousState', state.friends)
+        console.log("edit", payload, state.friends[payload.docRefid], payload.updates)
+        Object.assign(state.friends[payload.docRefid], {
             firstName: payload.updates.firstName,
             lastName: payload.updates.lastName,
             email: payload.updates.email,
-            friendID: payload.id
-        })
-    },
 
+        })
+        console.log('updateState', state.friends)
+    },
 }
 
 const actions = {
-    async fbReadFriends({ commit }, friend) {
+    fbReadFriends({ commit }, friend) {
         let userId = firebaseAuth.currentUser.uid
-        let ref = await firebaseStore.collection('user').doc(userId).collection('friends')
+        let ref = firebaseStore.collection('user').doc(userId).collection('friends')
         ref.onSnapshot(snap => {
             // this.todos = [];
             snap.forEach(doc => {
                 var friend = doc.data();
                 console.log("friend", friend)
-                    // todo.id = doc.id;
                 let payload = {
                     docRefid: doc.id,
                     friend: friend
@@ -52,13 +56,30 @@ const actions = {
             });
         })
     },
+    fbReadFiles({ commit }) {
+        let userId = firebaseAuth.currentUser.uid
+        let ref = firebaseStore.collection('user').doc(userId).collection('files')
+        ref.onSnapshot(snap => {
+            // this.todos = [];
+            snap.forEach(doc => {
+                var file = doc.data();
+                console.log("file", file)
+                let payload = {
+                    docRefid: doc.id,
+                    file: file
+                }
+                commit('addFile', payload)
+                    // this.todos.push(todo);
+            });
+        })
+    },
 
     addFriend({ dispatch }, friend) {
         dispatch('fbAddFriend', friend)
     },
-    async fbAddFriend({ commit }, friend) {
+    fbAddFriend({ commit }, friend) {
         let userId = firebaseAuth.currentUser.uid
-        let ref = await firebaseStore.collection('user').doc(userId).collection('friends')
+        let ref = firebaseStore.collection('user').doc(userId).collection('friends')
         ref.add({
                 firstName: friend.firstName,
                 lastName: friend.lastName,
@@ -79,15 +100,15 @@ const actions = {
             });
     },
 
-    async updateFriend({ dispatch, commit }, payload) {
+    updateFriend({ dispatch, commit }, payload) {
 
         // dispatch('fbUpdateFriend', payload)
         let userId = firebaseAuth.currentUser.uid
         let docId = payload.id
-        let updateref = await firebaseStore.collection('user').doc(userId).collection('friends').doc(docId)
+        let updateref = firebaseStore.collection('user').doc(userId).collection('friends').doc(docId)
         console.log("dd", updateref, payload)
         let payload1 = {
-            id: docId,
+            docRefid: docId,
             updates: payload.updates
         }
         console.log("ee", payload1)
@@ -105,12 +126,36 @@ const actions = {
     },
 
 
+    addFile({ dispatch, commit }, payload) {
+        let userId = firebaseAuth.currentUser.uid
+        let ref = firebaseStore.collection('user').doc(userId).collection('files')
+        ref.add({
+                filename: payload.filename,
+                filePath: payload.filePath,
+                downloadurl: payload.downloadurl
+            })
+            // .then(function(docRef) {
+
+        //     Notify.create('Fill Uploaded!')
+        //     let payload = {
+        //         docRefid: docRef.id,
+        //         friend: friend
+        //     }
+        //     commit('addFile', payload)
+        // })
+    }
+
+
 }
 
 const getters = {
     friends: state => {
 
         return state.friends
+    },
+    files: state => {
+
+        return state.files
     },
 
 }

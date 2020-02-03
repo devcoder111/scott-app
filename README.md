@@ -1,70 +1,39 @@
-# Quasar App
+# Quasar(Vue Firebase Music App
 
-1. npm install 
-2. quasar dev
+## Firebase Config
 
+Set up your Firebase app in the console and get your configuration
+for web apps.
 
-Settings Page
- ->Members with roles (truckerDriver, admin, loader, dispatcher (A,B,C,D), harbourStaff)
+Add the applicable Firebase configuration items to to `firebase.js`
 
+Quasar CLI Documentation http://quasar-framework.org/guide/quasar-cli.html
 
-entry:{
-    dispatcher A
-    Name
-    Surname
-    platenumberTruck
-    platenumberTrailor
-    number of truckdriver
-    date
-    time
-    //
-    centralLocationDropdown
-    loadingLocationDropdown
-}
-
- 
+If you need, you can upgrade Quasar version following next Upgrade Guide
+https://quasar-framework.org/guide/quasar-upgrade-guide.html
 
 
-Dispatcher view&add&edit:
-Name
-Surname
-platenumber
-platenumber
-number of truckdriver
-date
-time
+## Installation
 
+`$ git clone https://github.com/CristalT/quasar-app-firebase-auth.git <folder-name>`
 
-Truckdriver View&editOnlyNumber
-number of truckdriver editable
-number of truckdriver WhatsApp editable
-button „I have arrived “ when they arrive to see the loading location
+Download this repository, paste their files into your quasar project and run:
 
+`$ npm install`
 
-Admin view&edit&add
-Name
-Surname
-platenumberTruck
-platenumberTrailor
-number of truckdriver
-number of truckdriver WhatsApp
-date
-time
-edit central location dropdown
-edit loading location dropdown
+Replace the config values of your firebase app into file `src/plugins/env-example.json` and
+rename it as **env.json**
 
+```
+  apiKey: "...",
+  authDomain: "...",
+  databaseURL: "...",
+  projectId: "...",
+  storageBucket: "...",
+  messagingSenderId: "..."
+  
+```
 
-Loader view&edit&add
-Name
-Surname
-platenumberTruck
-platenumberTrailor
-number of truckdriver
-number of truckdriver WhatsApp
-date
-time
-central location
-loading location
-loaded amount in truck
+## Run
 
-
+`$ quasar dev`

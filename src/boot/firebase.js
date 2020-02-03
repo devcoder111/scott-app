@@ -21,6 +21,7 @@ var firebaseConfig = {
 let firebaseApp = firebase.initializeApp(firebaseConfig)
 let firebaseAuth = firebaseApp.auth()
 let firebaseDb = firebaseApp.database()
+    // let storage = firebaseApp.storage("gs://fb101-286a0.appspot.com");
 
 let firebaseStore = firebase.firestore();
 

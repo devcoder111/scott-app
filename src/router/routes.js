@@ -16,12 +16,12 @@ const routes = [{
         //         import ('pages/PageTodo.vue'),
 
         // },
-        // {
-        //     path: '/settings',
-        //     component: () =>
-        //         import ('pages/PageSettings.vue'),
-        //     beforeEnter: requireAuth,
-        // },
+        {
+            path: '/listening',
+            component: () =>
+                import ('pages/PageListening.vue'),
+
+        },
         // {
         //     path: '/settings/help',
         //     component: () =>

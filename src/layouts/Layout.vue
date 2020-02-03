@@ -66,7 +66,7 @@
       <q-list dark>
         <q-item-label header>Navigation</q-item-label>
 
-        <!-- <q-item
+        <q-item
           v-for="nav in navs"
           :key="nav.label"
           :to="nav.to"
@@ -79,7 +79,7 @@
           <q-item-section>
             <q-item-label>{{ nav.label }}</q-item-label>
           </q-item-section>
-        </q-item> -->
+        </q-item>
         
       </q-list>
     </q-drawer>
@@ -103,16 +103,16 @@ import { watch } from 'fs'
         // leftDrawerOpen: this.$q.platform.is.desktop,
         leftDrawerOpen: true,
         navs: [
-          {
-            label: 'Trip',
-            icon: 'list',
-            to: '/task'
-          },
-          {
-            label: 'Settings',
-            icon: 'settings',
-            to: '/settings'
-          }
+          // {
+          //   label: 'Trip',
+          //   icon: 'list',
+          //   to: '/task'
+          // },
+          // {
+          //   label: 'Listening Music',
+          //   icon: 'settings',
+          //   to: '/listening'
+          // }
         ]
       }
     },

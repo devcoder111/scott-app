@@ -13,7 +13,7 @@
 
 import Vue from 'vue'
 
-import {Quasar,QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QTable,QTd,QTr,QTh,QBar,QFooter,QTabs,QTab,QRouteTab,QCheckbox,QDialog,QCard,QCardSection,QCardActions,QSpace,QInput,QDate,QPopupProxy,QTime,QBanner,QSelect,QScrollArea,QToggle,QTabPanels,QTabPanel,QSeparator,QSpinner,Ripple,ClosePopup,TouchHold,Notify,Dialog,LocalStorage} from 'quasar'
+import {Quasar,QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QTable,QTd,QTr,QTh,QBar,QUploader,QFooter,QTabs,QTab,QRouteTab,QCheckbox,QDialog,QCard,QCardSection,QCardActions,QSpace,QInput,QDate,QPopupProxy,QTime,QBanner,QSelect,QScrollArea,QToggle,QTabPanels,QTabPanel,QSeparator,QSpinner,Ripple,ClosePopup,TouchHold,Notify,Dialog,LocalStorage} from 'quasar'
 
 
-Vue.use(Quasar, { config: {},components: {QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QTable,QTd,QTr,QTh,QBar,QFooter,QTabs,QTab,QRouteTab,QCheckbox,QDialog,QCard,QCardSection,QCardActions,QSpace,QInput,QDate,QPopupProxy,QTime,QBanner,QSelect,QScrollArea,QToggle,QTabPanels,QTabPanel,QSeparator,QSpinner},directives: {Ripple,ClosePopup,TouchHold},plugins: {Notify,Dialog,LocalStorage} })
+Vue.use(Quasar, { config: {},components: {QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QTable,QTd,QTr,QTh,QBar,QUploader,QFooter,QTabs,QTab,QRouteTab,QCheckbox,QDialog,QCard,QCardSection,QCardActions,QSpace,QInput,QDate,QPopupProxy,QTime,QBanner,QSelect,QScrollArea,QToggle,QTabPanels,QTabPanel,QSeparator,QSpinner},directives: {Ripple,ClosePopup,TouchHold},plugins: {Notify,Dialog,LocalStorage} })

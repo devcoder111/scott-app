@@ -44,7 +44,7 @@ module.exports = function (ctx) {
         'QTr',
         'QTh',
         'QBar',
-
+        'QUploader',
         'QFooter',
         'QTabs',
         'QTab',
