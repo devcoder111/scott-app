@@ -17,6 +17,8 @@ const mutations = {
 }
 
 const actions = {
+
+    // Register user with email address and password
     registerUser({ dispatch }, payload) {
         Loading.show()
         firebaseAuth.createUserWithEmailAndPassword(payload.email, payload.password)
@@ -33,6 +35,8 @@ const actions = {
                 showErrorMessage(error.message)
             })
     },
+
+    // Login user with email and password
     loginUser({ commit }, payload) {
         Loading.show()
         firebaseAuth.signInWithEmailAndPassword(payload.email, payload.password)
@@ -44,6 +48,8 @@ const actions = {
                 showErrorMessage(error.message)
             })
     },
+
+    //Logout user
     logoutUser({ commit }) {
         console.log('logoutUser')
         firebaseAuth.signOut()
@@ -51,6 +57,8 @@ const actions = {
 
 
     },
+
+    // when change the loggedin user 
     handleAuthStateChange({ commit, dispatch }) {
         firebaseAuth.onAuthStateChanged(user => {
             Loading.hide()

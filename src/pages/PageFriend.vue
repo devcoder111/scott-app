@@ -34,16 +34,7 @@
   		</template>
 
   	</div>
-	  <!-- <div class="q-pa-md">
-		<div class="q-gutter-md row items-start">
-		<q-uploader
-			url="gs://fb101-286a0.appspot.com/musics"
-			label="Upload to mp3 file"
-			multiple
-			accept=".mp3"
-			style="max-width: 300px"></q-uploader>
-		</div>
-	  </div> -->
+
 	  <template>
 		  <div class="q-gutter-md" style="max-width: 335px">
 		   <q-input outlined v-model="fileName" label="File Name" />

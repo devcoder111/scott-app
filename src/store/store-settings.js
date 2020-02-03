@@ -3,9 +3,6 @@ import { LocalStorage, uid, Notify, Loading } from 'quasar'
 import { firebaseDb, firebaseAuth, firebaseStore } from 'boot/firebase'
 import firestore from 'firebase/firestore'
 
-// import * as admin from 'firebase-admin'
-// import * as functions from 'firebase-functions'
-
 const state = {
 
     friends: {},
@@ -39,6 +36,8 @@ const mutations = {
 }
 
 const actions = {
+
+    // Initial, reading the friends list
     fbReadFriends({ commit }, friend) {
         let userId = firebaseAuth.currentUser.uid
         let ref = firebaseStore.collection('user').doc(userId).collection('friends')
@@ -52,10 +51,12 @@ const actions = {
                     friend: friend
                 }
                 commit('addFriend', payload)
-                    // this.todos.push(todo);
+
             });
         })
     },
+
+    // Initial, reading the mp3 file list
     fbReadFiles({ commit }) {
         let userId = firebaseAuth.currentUser.uid
         let ref = firebaseStore.collection('user').doc(userId).collection('files')
@@ -69,11 +70,12 @@ const actions = {
                     file: file
                 }
                 commit('addFile', payload)
-                    // this.todos.push(todo);
+
             });
         })
     },
 
+    // Adding the new friend
     addFriend({ dispatch }, friend) {
         dispatch('fbAddFriend', friend)
     },
@@ -100,6 +102,7 @@ const actions = {
             });
     },
 
+    // updating existing friend
     updateFriend({ dispatch, commit }, payload) {
 
         // dispatch('fbUpdateFriend', payload)
@@ -125,24 +128,15 @@ const actions = {
 
     },
 
-
+    // Adding the mp3 file 
     addFile({ dispatch, commit }, payload) {
         let userId = firebaseAuth.currentUser.uid
         let ref = firebaseStore.collection('user').doc(userId).collection('files')
         ref.add({
-                filename: payload.filename,
-                filePath: payload.filePath,
-                downloadurl: payload.downloadurl
-            })
-            // .then(function(docRef) {
-
-        //     Notify.create('Fill Uploaded!')
-        //     let payload = {
-        //         docRefid: docRef.id,
-        //         friend: friend
-        //     }
-        //     commit('addFile', payload)
-        // })
+            filename: payload.filename,
+            filePath: payload.filePath,
+            downloadurl: payload.downloadurl
+        })
     }
 
 

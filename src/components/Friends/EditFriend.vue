@@ -53,13 +53,6 @@
 			},
 			submitForm() {  
 				this.submitFriend()
-				// this.$refs.name.validate()
-				// if (!this.$refs.name.hasError) {
-				// 	this.submitLocation()
-				// 	console.log("this", this)
-				// 	this.$emit('close')
-				// 	EventBus.$emit('EVENT_NAME', this.locations);
-				// }
             }
 			},
 		mounted() {
